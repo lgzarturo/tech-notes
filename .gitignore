@@ -1,0 +1,29 @@
+# Archivos del sistema
+.DS_Store
+Thumbs.db
+
+# Node
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# IDEs y editores
+.idea/
+.vscode/
+*.swp
+
+# Build / cache
+dist/
+build/
+.cache/
+
+# Python (si agregas scripts)
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+*.env
+
+# Otros
+.env.local
