@@ -56,15 +56,15 @@ Cuando agregues una nueva nota:
 Ejemplo de plantilla:
 
 ```markdown
-# Título de la nota
+## Título de la nota
 
-## Problema
+### Problema
 Breve descripción del problema.
 
-## Solución
+### Solución
 # ejemplo de comando
 
-## Notas
+### Notas
 
 Detalles adicionales, consideraciones o advertencias.
 ```
