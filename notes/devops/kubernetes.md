@@ -40,4 +40,6 @@ stern <pod-name> -n <namespace>
 
 **Recomendación**: k9s es una herramienta muy útil para la administración de clústeres de Kubernetes, ya que permite ver y gestionar recursos de manera interactiva. Puedes navegar entre diferentes recursos, ver logs, y realizar acciones como eliminar pods directamente desde la interfaz.
 
+**Tags:** #kubernetes #kubectl #k9s #stern #monitoring
+
 --- 

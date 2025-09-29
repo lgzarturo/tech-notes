@@ -34,4 +34,6 @@ taskkill /PID <PID> /F
 
 Si ese puerto lo usabas para autossh o un túnel SSH, asegúrate de cerrarlo antes de volver a levantarlo de nuevo, ya que podría generar conflictos o quedarse colgado en segundo plano.
 
+**Tags:** #workflow #port #killprocess #linux #macos #windows
+
 ---

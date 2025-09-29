@@ -57,13 +57,15 @@ ORDER BY conexiones_activas DESC;
 
 Con estos comandos puedes monitorear el uso de conexiones en tu base de datos PostgreSQL y tomar medidas si te acercas al límite máximo. Si necesitas aumentar el límite, puedes modificar el parámetro `max_connections` en el archivo de configuración `postgresql.conf` y reiniciar el servidor.
 
-Objetivos:
+**Objetivos**:
 
 - Saber el limite máximo de conexiones.
 - Saber cuántas conexiones activas hay.
 - Saber cuántas conexiones disponibles hay.
 - Ver el detalle de conexiones por base de datos.
 - Ver el detalle de conexiones por usuario.
+
+**Tags**: #postgresql #database #connections #monitoring
 
 ---
 
@@ -130,5 +132,7 @@ Aumentar el límite de conexiones máximas puede ayudar a evitar errores relacio
 
 - Si solo es para dev/test: aumentar a 200 o 300 conexiones no debería ser un problema.
 - En producción: no subas tanto el límite sin antes considerar un pool de conexiones, hay que evitar la saturación del servidor.
+
+**Tags**: #postgresql #database #connections #max_connections #configuration
 
 ---
