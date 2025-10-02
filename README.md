@@ -1,6 +1,7 @@
 # 📝 Cuaderno de Desarrollo
 
-Este repositorio es mi base de conocimiento personal con notas, tips y fragmentos de código que he aprendido y aplicado durante el proceso de desarrollo de software.  
+Este repositorio es mi base de conocimiento personal con notas, tips y fragmentos de código que he aprendido y aplicado durante el proceso de desarrollo de software. 
+ 
 Su objetivo es servir como una referencia rápida y práctica para futuros proyectos.
 
 ---

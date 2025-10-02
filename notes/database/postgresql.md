@@ -136,3 +136,67 @@ Aumentar el límite de conexiones máximas puede ayudar a evitar errores relacio
 **Tags**: #postgresql #database #connections #max_connections #configuration
 
 ---
+
+## Eliminar todas las tablas y secuencias de un esquema public
+
+### Problema
+
+Necesito eliminar todas las tablas y secuencias de un esquema `public` en PostgreSQL para limpiar la base de datos sin eliminar el esquema en sí. Esto es útil en entornos de desarrollo o pruebas donde quiero reiniciar el estado de la base de datos, donde usamos el esquema `public` por defecto y se hace uso de multitenancy. 
+
+### Solución
+
+Hay varias formas de hacerlo:
+
+**Opción 1: Eliminar todo el esquema y volver a crearlo**
+
+Esto borra absolutamente todo lo que contiene public (tablas, secuencias, vistas, funciones, etc.) y lo deja limpio:
+
+```sql
+DROP SCHEMA public CASCADE;
+CREATE SCHEMA public;
+GRANT ALL ON SCHEMA public TO postgres;
+GRANT ALL ON SCHEMA public TO public;
+```
+
+Esta es la forma más rápida y segura si no tienes objetos que quieras conservar en el esquema public.
+
+**Opción 2: Eliminar solo tablas y secuencias**
+
+Si solo quieres borrar tablas y secuencias pero mantener el esquema public y otros objetos (ej. funciones), puedes generar los DROP dinámicamente:
+
+```sql
+DO
+$$
+DECLARE
+    r RECORD;
+BEGIN
+    -- Eliminar tablas
+    FOR r IN (SELECT tablename FROM pg_tables WHERE schemaname = 'public') LOOP
+        EXECUTE 'DROP TABLE IF EXISTS public.' || quote_ident(r.tablename) || ' CASCADE';
+    END LOOP;
+
+    -- Eliminar secuencias
+    FOR r IN (SELECT sequencename FROM pg_sequences WHERE schemaname = 'public') LOOP
+        EXECUTE 'DROP SEQUENCE IF EXISTS public.' || quote_ident(r.sequencename) || ' CASCADE';
+    END LOOP;
+END;
+$$;
+```
+
+**Opción 3: Comando rápido solo para tablas**
+
+```sql
+DROP OWNED BY CURRENT_USER;
+```
+
+Esto elimina todo lo que pertenece al usuario actual, pero si hay objetos de otros dueños, no los toca.
+
+### Notas
+
+- Si lo que buscas es un reset total, la opción 1 (DROP SCHEMA public CASCADE) es la más limpia.
+- Si solo quieres eliminar tablas + secuencias, usa la opción 2.
+
+
+**Tags:** #postgresql #database #schema #public #drop #tables #sequences
+
+---
