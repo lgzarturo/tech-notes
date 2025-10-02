@@ -16,6 +16,7 @@ Su objetivo es servir como una referencia rápida y práctica para futuros proye
 - [Guía para nuevas notas y contribución](#guía-para-nuevas-notas-y-contribución)
 - [Plantilla para notas rápidas](#plantilla-para-notas-rápidas)
 - [Licencia](#licencia)
+- [Índice por archivo](notes/README.md)
 
 ---
 
@@ -100,6 +101,8 @@ Pasos, comandos o fragmentos de código para resolverlo.
 Advertencias, tips personales o enlaces útiles.
 
 **Tags:** #tag1 #tag2 #tag3
+
+---
 ```
 
 ---
@@ -113,6 +116,6 @@ Advertencias, tips personales o enlaces útiles.
 
 ---
 
-## 📝 Licencia
+## Licencia
 
 Este repositorio está licenciado bajo [CC-BY-4.0](LICENSE). Atribución requerida a: **Arturo Lopez** (lgzarturo@gmail.com)

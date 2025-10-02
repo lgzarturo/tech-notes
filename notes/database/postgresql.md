@@ -1,6 +1,6 @@
 # PostgreSQL
 
-## Validar el número de conexiones actuales
+## Validar las conexiones actuales
 
 ### Problema
 
@@ -59,7 +59,7 @@ Con estos comandos puedes monitorear el uso de conexiones en tu base de datos Po
 
 **Objetivos**:
 
-- Saber el limite máximo de conexiones.
+- Saber el límite máximo de conexiones.
 - Saber cuántas conexiones activas hay.
 - Saber cuántas conexiones disponibles hay.
 - Ver el detalle de conexiones por base de datos.
@@ -69,7 +69,7 @@ Con estos comandos puedes monitorear el uso de conexiones en tu base de datos Po
 
 ---
 
-## Aumentar el límite de conexiones máximas
+## Aumentar las conexiones de la base de datos
 
 ### Problema
 
