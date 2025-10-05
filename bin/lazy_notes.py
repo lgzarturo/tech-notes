@@ -57,6 +57,7 @@ class NoteIndex:
     def index_notes(self):
         console.print(f"[bold green]Indexing notes in directory:[/bold green] {self.directory}")
 
+        unique_ids = set()
         for md_file in self.directory.rglob('*.md'):
             try:
                 with open(md_file, 'r', encoding='utf-8') as f:
@@ -68,8 +69,13 @@ class NoteIndex:
 
                 stat = md_file.stat()
 
+                note_id = str(md_file.relative_to(self.directory))
+                if note_id in unique_ids:
+                    continue
+                unique_ids.add(note_id)
+
                 note = {
-                    'id': str(md_file.relative_to(self.directory)),
+                    'id': note_id,
                     'path': str(md_file),
                     'filename': md_file.name,
                     'title': title,
@@ -87,7 +93,7 @@ class NoteIndex:
                 self.index.append(note)
             except Exception as e:
                 console.print(f"[bold red]Error processing file {md_file}:[/bold red] {e}")
-            return self.index
+        return self.index
     
     def save_index(self, output_file: str = ".lazy_notes_index.json"):
         index_path = self.directory / output_file
