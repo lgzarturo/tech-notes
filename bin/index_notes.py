@@ -85,7 +85,7 @@ def build_markdown_index(index):
                 subcat = note.get('category', '')
                 note_path = note['path'].replace('\\', '/')
                 lines.append(f'- [{note["title"]}]({note_path})')
-    return '\n'.join(lines)
+    return '\n'.join(lines) + '\n'
 
 
 if __name__ == "__main__":

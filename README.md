@@ -19,6 +19,8 @@ Su objetivo es servir como una referencia rápida y práctica para futuros proye
     - [Productividad](#productividad)
   - [Directorio de notas](#directorio-de-notas)
   - [🧑‍💻 Cómo usarlo](#-cómo-usarlo)
+    - [Lazy notes](#lazy-notes)
+    - [Mkdocs servidor local](#mkdocs-servidor-local)
   - [Guía para nuevas notas y contribución](#guía-para-nuevas-notas-y-contribución)
     - [Ejemplo de índice interno](#ejemplo-de-índice-interno)
   - [Plantilla para nuevo archivo de notas](#plantilla-para-nuevo-archivo-de-notas)
@@ -116,6 +118,28 @@ Las notas están organizadas por tema para facilitar la navegación. Cada secci�
 1. Navega por las carpetas según el tema.
 2. Abre los archivos Markdown para ver fragmentos de código, explicaciones y notas personales.
 3. Usa este repositorio como referencia rápida durante el desarrollo.
+
+### Lazy notes
+
+Es un script que genera un índice de todas las notas en el repositorio para facilitar la navegación. Se puede ejecutar desde la línea de comandos:
+
+```bash
+pipenv run lazy-notes
+```
+
+Este script escanea todos los archivos de notas, extrae los títulos y genera un archivo `INDEX.md` con enlaces a cada nota organizada por categoría y es un cliente ligero para buscar y acceder rápidamente a las notas.
+
+Para más detalles, consulta el archivo [bin/lazy_notes.py](bin/lazy_notes.py).
+
+### Mkdocs servidor local
+
+También puedes usar MkDocs para servir y navegar por las notas en un formato web. Esta configuración está en el archivo `mkdocs.yml`.
+
+```bash
+pipenv run start
+```
+
+Esto iniciará un servidor local en `http://localhost:8000`. Indexa el contenido de las notas y proporciona una interfaz web para navegar por ellas y realizar búsquedas de manera eficiente.
 
 ---
 
