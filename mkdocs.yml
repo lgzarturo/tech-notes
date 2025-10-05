@@ -1,0 +1,21 @@
+site_name: Tech Notes
+docs_dir: notes
+theme:
+  name: material
+  feature:
+    - navigation.tabs
+    - navigation.indexes
+    - search.suggest
+    - search.highlight
+    - navigation.top
+    - toc.integrate
+
+  plugins:
+    - search
+    - roamlinks
+
+  markdown_extensions:
+    - meta
+    - wikilinks
+    - attr_list
+    - pymdownx.tasklists
