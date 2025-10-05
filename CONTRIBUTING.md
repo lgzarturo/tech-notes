@@ -6,9 +6,11 @@ Sigue estos pasos para agregar nuevas notas o mejorar las existentes:
 
 1. **Haz un fork** de este repositorio y clona tu fork localmente.
 2. Crea una rama descriptiva para tu cambio:
+
    ```bash
    git checkout -b nombre-del-cambio
    ```
+
 3. Agrega o edita archivos Markdown siguiendo la [plantilla para notas rápidas](README.md#plantilla-para-notas-rápidas) y la [guía para nuevas notas](README.md#guía-para-nuevas-notas-y-contribución).
 4. Si tu nota es extensa, incluye un índice interno al inicio del archivo.
 5. Haz commit de tus cambios con un mensaje claro y abre un Pull Request.

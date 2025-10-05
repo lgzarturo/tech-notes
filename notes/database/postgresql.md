@@ -1,12 +1,26 @@
-# PostgreSQL
+---
+title: PostgreSQL
+tags: [backend, postgresql, database, tools]
+category: backend
+status: draft
+created: 2025-10-05
+updated: 2025-10-05
+related: []
+---
 
-## Validar las conexiones actuales
+## PostgreSQL
 
-### Problema
+PostgreSQL es un sistema de gestión de bases de datos relacional (**RDBMS**) de código abierto. Es conocido por su robustez, escalabilidad y soporte para características avanzadas como transacciones ACID, tipos de datos personalizados y extensiones.
+
+---
+
+### Validar las conexiones actuales
+
+**Problema:**
 
 Necesito saber cuántas conexiones activas hay en mi base de datos PostgreSQL para monitorear el uso y evitar alcanzar el límite máximo de conexiones permitidas.
 
-### Solución
+**Solución:**
 
 - **Opción 1**: Consultar los parámetros de configuración para ver el límite máximo de conexiones permitidas.
 
@@ -14,7 +28,7 @@ Necesito saber cuántas conexiones activas hay en mi base de datos PostgreSQL pa
 -- Ver el límite máximo de conexiones permitidas
 SHOW max_connections;
 
--- Ver las conexiones reservadas para superusuarios
+-- Ver las conexiones reservadas para super usuarios
 SHOW superuser_reserved_connections;
 ```
 
@@ -53,7 +67,7 @@ GROUP BY usename;
 ORDER BY conexiones_activas DESC;
 ```
 
-### Notas
+**Notas:**
 
 Con estos comandos puedes monitorear el uso de conexiones en tu base de datos PostgreSQL y tomar medidas si te acercas al límite máximo. Si necesitas aumentar el límite, puedes modificar el parámetro `max_connections` en el archivo de configuración `postgresql.conf` y reiniciar el servidor.
 
@@ -69,13 +83,13 @@ Con estos comandos puedes monitorear el uso de conexiones en tu base de datos Po
 
 ---
 
-## Aumentar las conexiones de la base de datos
+### Aumentar las conexiones de la base de datos
 
-### Problema
+**Problema:**
 
 Puede llegar a suceder el error: `FATAL: sorry, too many clients already` cuando se alcanzan el número máximo de conexiones permitidas en PostgreSQL. Para evitar este error, es necesario aumentar el límite de conexiones máximas.
 
-### Solución
+**Solución:**
 
 - **Opción 1**: Aumentar max_connections en el archivo de configuración `postgresql.conf`.
 
@@ -100,7 +114,7 @@ ulimit -n
 - Mas conexiones requieren más memoria y CPU. Asegúrate de que tu sistema tenga suficientes recursos para manejar el aumento. Cada conexión consume memoria adicional, no solo work_mem, sino también otros buffers y estructuras internas.
 - No es buena práctica establecer un valor extremadamente alto para `max_connections` sin considerar los recursos del sistema.
 
-Entornos productivos:
+**Entornos productivos:**
 
 - Mantener `max_connections` entre 100 y 200.
 - Usar un pool de conexiones como PgBouncer o Pgpool-II para manejar muchas conexiones de manera eficiente.
@@ -126,7 +140,7 @@ SELECT pg_terminate_backend(<pid>);
 
 > Si ves muchas conexiones en estado `idle`, podrías considerar ajustar el tiempo de espera para conexiones inactivas usando el parámetro `idle_in_transaction_session_timeout` en `postgresql.conf`. Antes de eso, investiga por qué las conexiones están quedando inactivas, hay que validar el cierre correcto en la aplicación, validar que haya un pool de conexiones (ej. HikariCP en SpringBoot con maxLifetime y idleTimeout configurados).
 
-### Notas
+**Notas:**
 
 Aumentar el límite de conexiones máximas puede ayudar a evitar errores relacionados con demasiadas conexiones, pero es importante hacerlo de manera responsable y considerar el impacto en los recursos del sistema. Siempre monitorea el uso de conexiones y ajusta según sea necesario.
 
@@ -141,13 +155,13 @@ Aumentar el límite de conexiones máximas puede ayudar a evitar errores relacio
 
 ### Problema
 
-Necesito eliminar todas las tablas y secuencias de un esquema `public` en PostgreSQL para limpiar la base de datos sin eliminar el esquema en sí. Esto es útil en entornos de desarrollo o pruebas donde quiero reiniciar el estado de la base de datos, donde usamos el esquema `public` por defecto y se hace uso de multitenancy. 
+Necesito eliminar todas las tablas y secuencias de un esquema `public` en PostgreSQL para limpiar la base de datos sin eliminar el esquema en sí. Esto es útil en entornos de desarrollo o pruebas donde quiero reiniciar el estado de la base de datos, donde usamos el esquema `public` por defecto y se hace uso de multitenancy.
 
 ### Solución
 
 Hay varias formas de hacerlo:
 
-**Opción 1: Eliminar todo el esquema y volver a crearlo**
+**Opción 1:** Eliminar todo el esquema y volver a crearlo.
 
 Esto borra absolutamente todo lo que contiene public (tablas, secuencias, vistas, funciones, etc.) y lo deja limpio:
 
@@ -160,7 +174,7 @@ GRANT ALL ON SCHEMA public TO public;
 
 Esta es la forma más rápida y segura si no tienes objetos que quieras conservar en el esquema public.
 
-**Opción 2: Eliminar solo tablas y secuencias**
+**Opción 2:** Eliminar solo tablas y secuencias.
 
 Si solo quieres borrar tablas y secuencias pero mantener el esquema public y otros objetos (ej. funciones), puedes generar los DROP dinámicamente:
 
@@ -183,7 +197,7 @@ END;
 $$;
 ```
 
-**Opción 3: Comando rápido solo para tablas**
+**Opción 3:** Comando rápido solo para tablas.
 
 ```sql
 DROP OWNED BY CURRENT_USER;
@@ -191,11 +205,10 @@ DROP OWNED BY CURRENT_USER;
 
 Esto elimina todo lo que pertenece al usuario actual, pero si hay objetos de otros dueños, no los toca.
 
-### Notas
+**Notas:**
 
 - Si lo que buscas es un reset total, la opción 1 (DROP SCHEMA public CASCADE) es la más limpia.
 - Si solo quieres eliminar tablas + secuencias, usa la opción 2.
-
 
 **Tags:** #postgresql #database #schema #public #drop #tables #sequences
 
