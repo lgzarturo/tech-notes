@@ -1,30 +1,54 @@
 # Índice de notas
 
+## Areas
+
+- [Clean Code](areas/clean-code.md)
+- [Design Patterns](areas/design-patterns.md)
+- [Testing](areas/testing.md)
+
 ## Backend
 
-- Python
-  - [Instalar dependencias de desarrollo con pipenv](backend/python.md#instalar-dependencias-de-desarrollo-con-pipenv)
+- [Kotlin](backend/kotlin.md)
+- [Python](backend/python.md)
+- [Spring Boot](backend/spring-boot.md)
+- [MySQL](database/mysql.md)
+- [PostgreSQL](database/postgresql.md)
+
+## Daily
+
+- [Git Commands](daily/git-commands.md)
+- [Linux Commands](daily/linux-commands.md)
+- [VSCode](daily/vscode.md)
 
 ## Database
 
-- PostgreSQL
-  - [Validar las conexiones actuales](database/postgresql.md#validar-las-conexiones-actuales)
-  - [Aumentar las conexiones de la base de datos](database/postgresql.md#aumentar-las-conexiones-de-la-base-de-datos)
+- [Redis](database/redis.md)
 
 ## DevOps
 
-- Kubernetes
-  - [Herramientas para ver los pods en tiempo real](devops/kubernetes.md#herramientas-para-ver-los-pods-en-tiempo-real)
+- [CI/CD](devops/ci-cd.md)
+- [Docker](devops/docker.md)
+- [Kubernetes](devops/kubernetes.md)
+
+## Frontend
+
+- [Astro](frontend/astro.md)
+- [React](frontend/react.md)
+- [Tailwind CSS](frontend/tailwind.md)
 
 ## Productivity
 
-- Workflows
-  - [Eliminar un puerto en uso](productivity/workflows.md#eliminar-un-puerto-en-uso)
-  - [Eliminar procesos de java colgados por el IntelliJ](productivity/workflows.md#eliminar-procesos-de-java-colgados-por-el-intellij)
-  - [Matar procesos de Java colgados en Windows](productivity/workflows.md#matar-procesos-de-java-colgados-en-windows)
-  - [Convertir svg a jpg sin perder calidad](productivity/workflows.md#convertir-svg-a-jpg-sin-perder-calidad)
+- [Shortcuts](productivity/shortcuts.md)
+- [Workflows](productivity/workflows.md)
 
 ## Tools
 
-- IntelliJ IDEA
-  - [Evitar que IntelliJ consuma mucha memoria](tools/intellij.md#evitar-que-intellij-consuma-mucha-memoria)
+- [Auth0](tools/auth0.md)
+- [Git](tools/git.md)
+- [IntelliJ](tools/intellij.md)
+
+## Topics
+
+- [Algorithms](topics/algorithms.md)
+- [Design Systems](topics/design-systems.md)
+- [Security](topics/security.md)

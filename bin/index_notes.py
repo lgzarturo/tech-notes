@@ -2,6 +2,8 @@ import os
 import re
 import yaml
 
+import json
+
 from pathlib import Path
 
 
@@ -53,12 +55,57 @@ def index_notes(directory):
         index['connections'][md_file.stem] = links
     return index
 
+def build_markdown_index(index):
+    area_order = [
+        'Areas', 'Backend', 'Daily', 'Database', 'DevOps', 'Frontend', 'Productivity', 'Projects', 'Resources', 'Tools', 'Topics'
+    ]
+    
+    category_map = {
+        'areas': 'Areas',
+        'backend': 'Backend',
+        'daily': 'Daily',
+        'database': 'Database',
+        'devops': 'DevOps',
+        'frontend': 'Frontend',
+        'productivity': 'Productivity',
+        'projects': 'Projects',
+        'resources': 'Resources',
+        'tools': 'Tools',
+        'topics': 'Topics',
+    }
+    
+    by_category = index.get('by_category', {})
+    lines = ['# Índice de notas']
+    for area in area_order:
+        cat_key = area.lower()
+        if cat_key in by_category:
+            lines.append(f'\n## {area}\n')
+            
+            for note in by_category[cat_key]:
+                subcat = note.get('category', '')
+                note_path = note['path'].replace('\\', '/')
+                lines.append(f'- [{note["title"]}]({note_path})')
+    return '\n'.join(lines)
+
 
 if __name__ == "__main__":
     index = index_notes('notes')
-    import json
     with open('notes_index.json', 'w', encoding='utf-8') as f:
         json.dump(index, f, ensure_ascii=False, indent=4)
     print(f"Notas indexadas {len(index['all_notes'])} notas encontradas.")
     print(f"Tags encontrados: {len(index['by_tag'])} tags.")
     print(f"Conexiones encontradas: {len(index['connections'])} conexiones.")
+
+    md_index = build_markdown_index(index)
+    readme_path = Path('notes/README.md')
+    
+    if readme_path.exists():
+        with open(readme_path, 'r', encoding='utf-8') as f:
+            readme_content = f.read()
+        with open(readme_path, 'w', encoding='utf-8') as f:
+            f.write(md_index)
+        print('README.md actualizado con el nuevo índice.')
+    else:
+        with open(readme_path, 'w', encoding='utf-8') as f:
+            f.write(md_index)
+        print('README.md creado con el índice de notas.')
