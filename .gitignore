@@ -31,3 +31,7 @@ __pycache__/
 # Pipenv
 
 Pipfile.lock
+
+# Index de notas
+notes_index.json
+**/.lazy_notes_index.json

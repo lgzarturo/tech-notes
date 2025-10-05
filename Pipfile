@@ -7,8 +7,14 @@ name = "pypi"
 mkdocs = "*"
 mkdocs-material = "*"
 mkdocs-roamlinks-plugin = "*"
+rich = "*"
 
 [dev-packages]
+
+[scripts]
+start = "mkdocs serve"
+index = "python bin/index_notes.py"
+lazy-notes = "python bin/lazy_notes.py"
 
 [requires]
 python_version = "3.12"

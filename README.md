@@ -21,6 +21,7 @@ Su objetivo es servir como una referencia rápida y práctica para futuros proye
   - [🧑‍💻 Cómo usarlo](#-cómo-usarlo)
   - [Guía para nuevas notas y contribución](#guía-para-nuevas-notas-y-contribución)
     - [Ejemplo de índice interno](#ejemplo-de-índice-interno)
+  - [Plantilla para nuevo archivo de notas](#plantilla-para-nuevo-archivo-de-notas)
   - [Plantilla para notas rápidas](#plantilla-para-notas-rápidas)
   - [🌟 ¿Por qué este repositorio?](#-por-qué-este-repositorio)
   - [Licencia](#licencia)
@@ -139,21 +140,50 @@ Cuando agregues una nueva nota:
 
 ---
 
+## Plantilla para nuevo archivo de notas
+
+Frontmatter para metadata:
+
+```markdown
+---
+title: <Título de la nota>
+tags: [<tag1>, <tag2>, <tag3>]
+category: <categoría>
+status: <draft|published|archived>
+created: <yyyy-mm-dd>
+updated: <yyyy-mm-dd>
+related: [[<nota-relacionada1>], [<nota-relacionada2>]]
+---
+
+## <Título de la nota>
+
+<Descripción de la nota>
+
+---
+
+```
+
+---
+
 ## Plantilla para notas rápidas
 
 ```markdown
-## [Título breve y claro]
+### [Título breve y claro]
 
-### Problema
+**Problema:**
+
 Describe el problema o situación concreta.
 
-### Solución
+**Solución:**
+
 Pasos, comandos o fragmentos de código para resolverlo.
 
-### Ejemplo
+**Ejemplo:**
+
 (Opcional) Un caso de uso real o ejemplo de salida.
 
-### Notas
+**Notas:**
+
 Advertencias, tips personales o enlaces útiles.
 
 **Tags:** #tag1 #tag2 #tag3
