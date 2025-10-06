@@ -192,6 +192,7 @@ related: [[<nota-relacionada1>], [<nota-relacionada2>]]
 ## Plantilla para notas rápidas
 
 ```markdown
+
 ### [Título breve y claro]
 
 **Problema:**
@@ -213,6 +214,7 @@ Advertencias, tips personales o enlaces útiles.
 **Tags:** #tag1 #tag2 #tag3
 
 ---
+
 ```
 
 ---

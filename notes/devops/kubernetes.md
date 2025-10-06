@@ -61,3 +61,33 @@ k9s es una herramienta muy útil para la administración de clústeres de Kubern
 **Tags:** #kubernetes #kubectl #k9s #stern #monitoring
 
 ---
+
+### Reiniciar un pod en Kubernetes
+
+**Problema:**
+
+Cuando un pod en Kubernetes está en un estado no deseado (por ejemplo, CrashLoopBackOff), necesito reiniciarlo para que vuelva a funcionar correctamente.
+
+**Solución:**
+
+**Opción 1**: Eliminar el pod manualmente. Kubernetes automáticamente recreará el pod si está gestionado por un Deployment, ReplicaSet, o StatefulSet.
+
+```bash
+kubectl delete pod <pod-name> -n <namespace>
+```
+
+> Kubernetes recreará el pod automáticamente si está gestionado por un controlador.
+
+**Opción 2**: Si quieres reiniciar todos los pods en un Deployment específico, puedes usar el siguiente comando para forzar un reinicio:
+
+```bash
+kubectl rollout restart deployment <nombre-del-deployment> -n <namespace>
+```
+
+**Notas:**
+
+Nunca intentes reiniciar un pod directamente con `kubectl exec` o similares, eso no es una práctica recomendada en Kubernetes. Siempre es mejor dejar que el controlador gestione la recreación de los pods.
+
+**Tags:** #kubernetes #pods #reinicio
+
+---
