@@ -91,3 +91,41 @@ Nunca intentes reiniciar un pod directamente con `kubectl exec` o similares, eso
 **Tags:** #kubernetes #pods #reinicio
 
 ---
+
+### Obtener logs de un pod en Kubernetes con stern
+
+**Problema:**
+
+La herramienta `kubectl logs` solo permite ver los logs de un pod a la vez, lo que puede ser ineficiente cuando se trabaja con múltiples pods.
+
+**Solución:**
+
+Usar la herramienta `stern`, que permite ver los logs de múltiples pods en tiempo real y filtrar por nombre de pod o etiquetas.
+
+```bash
+stern <nombre-del-pod> -n <namespace>
+```
+
+Si no quieres que te muestre nada del historial y solo los logs nuevos, puedes usar la opción `--since`:
+
+```bash
+stern <nombre-del-pod> -n <namespace> --since 1m
+```
+
+o también puedes usar `--tail` para limitar la cantidad de líneas que quieres ver:
+
+```bash
+stern <nombre-del-pod> -n <namespace> --tail 100
+```
+
+**Notas:**
+
+Este comando:
+
+- Filtra los pods por el nombre proporcionado.
+- Muestra los logs en tiempo real.
+- No muestra logs históricos si se usa `--since` o `--tail`.
+
+**Tags:** #kubernetes #stern #logs
+
+---
