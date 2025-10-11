@@ -97,6 +97,7 @@ Las notas están organizadas por tema para facilitar la navegación. Cada secci�
 │   ├── react.md              # Notas sobre React y su uso
 │   └── tailwind.md           # Notas sobre Tailwind y su uso
 ├── productivity/          # Notas sobre productividad y flujos de trabajo
+│   ├── tech-lead.md          # Ideas y notas sobre liderazgo técnico
 │   ├── shortcuts.md          # Atajos de teclado y productividad
 │   └── workflows.md          # Flujos de trabajo y mejores prácticas
 ├── projects/              # Notas específicas de proyectos
