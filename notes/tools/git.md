@@ -82,3 +82,129 @@ Modifica la configuración de VSCode `.vscode/settings.json` para usar este arch
 **Tags:** #tools #git #conventional_commits #vscode #copilot
 
 ---
+
+### ¿Como dar commit a un tag?
+
+**Problema:**
+
+Quiero crear un commit asociado a un tag específico en Git para marcar una versión o hito importante en el historial del proyecto. Se usa comúnmente para versiones de lanzamiento (releases) o puntos clave en el desarrollo, son referencias útiles para identificar versiones específicas del código.
+
+**Solución:**
+
+Para crear un commit asociado a un tag en Git, sigue estos pasos:
+
+1. Crea un nuevo tag (si aún no existe) usando el comando:
+
+   ```bash
+   git tag -a v1.0 -m "Versión 1.0"
+   ```
+
+2. Realiza cambios en tu código y haz un commit:
+
+   ```bash
+   git add .
+   git commit -m "Descripción de los cambios"
+   ```
+
+3. Asocia el commit al tag usando el comando:
+
+   ```bash
+   git tag -f v1.0
+   ```
+
+4. Finalmente, sube el tag al repositorio remoto:
+
+   ```bash
+   git push origin v1.0
+   ```
+
+**Notas:**
+
+- Reemplaza `v1.0` con el nombre del tag que deseas usar.
+- El comando `-f` en `git tag -f` fuerza la actualización del tag al commit más reciente.
+- Asegúrate de comunicar a tu equipo si estás sobrescribiendo un tag existente, ya que esto puede afectar a otros desarrolladores que dependan de ese tag.
+
+**Tags:** #tools #git #tags #versioning
+
+---
+
+### Rollback de un commit
+
+**Problema:**
+
+Necesito revertir un commit específico en mi historial de Git debido a que introdujo errores o cambios no deseados en el código. Quiero asegurarme de que el historial del proyecto se mantenga limpio y que los cambios problemáticos sean eliminados de manera segura.
+
+**Solución:**
+
+Hay dos escenarios comunes para hacer rollback de un commit en Git:
+
+Para hacer un rollback del commit `685bf37` y revertir los cambios aplicados en ese commit en tu repositorio Git, tienes varias opciones, dependiendo de lo que quieras lograr:
+
+---
+
+**Opción 1: Revertir el commit con `git revert`**
+
+> RECOMENDADO si ya se hizo `push`
+
+Esto crea un nuevo commit que **deshace los cambios** introducidos por el commit `685bf37`, sin alterar el historial.
+
+```bash
+git revert 685bf37
+```
+
+* Git abrirá tu editor para escribir el mensaje del commit de reversión.
+* Puedes guardar y salir, o usar la opción `--no-edit` para evitarlo:
+
+```bash
+git revert 685bf37 --no-edit
+```
+
+Después:
+
+```bash
+git push origin <rama>
+```
+
+**Opción 2: Reset con `git reset`**
+
+> Útil si NO has hecho `push` aún
+
+Si el commit `685bf37` está solo localmente y **todavía no lo subes**, puedes hacer:
+
+Para deshacer el commit y mantener los cambios en tu working directory (modo "soft"):
+
+```bash
+git reset --soft HEAD^
+```
+
+Para deshacer el commit y también los cambios del working directory (modo "hard"):
+
+> ⚠️ **Esto borra los cambios de ese commit, sin posibilidad de recuperación** (a menos que los stashées o copies antes):
+
+```bash
+git reset --hard HEAD^
+```
+
+Después de hacer el reset:
+
+```bash
+git push origin <rama> --force
+```
+
+**¿Cuál usar?**
+
+| Situación                                | Usa...             |
+| ---------------------------------------- | ------------------ |
+| Ya hiciste `push` al commit              | `git revert`       |
+| No has hecho `push` y quieres eliminarlo | `git reset`        |
+| No te importa borrar cambios             | `git reset --hard` |
+
+**Notas:**
+
+- Siempre revisa el historial con `git log` antes de hacer rollback.
+- Considera comunicar a tu equipo si haces un `git reset --hard` y `push --force`, ya que puede afectar a otros desarrolladores.
+- Si necesitas recuperar un commit eliminado, puedes usar `git reflog` para encontrar su referencia.
+
+**Tags:** #tools #git #rollback #revert #reset
+
+---

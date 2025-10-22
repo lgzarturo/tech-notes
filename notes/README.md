@@ -2,6 +2,7 @@
 
 ## Areas
 
+- [Best Practices](areas/best-practices.md)
 - [Clean Code](areas/clean-code.md)
 - [Design Patterns](areas/design-patterns.md)
 - [Testing](areas/testing.md)

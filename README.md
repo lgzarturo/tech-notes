@@ -73,6 +73,7 @@ Las notas están organizadas por tema para facilitar la navegación. Cada secci�
 
 ```notes/
 ├── areas/                  # Notas sobre áreas de conocimiento y mejores prácticas
+│   ├── best-practices.md     # Notas sobre mejores prácticas en desarrollo
 │   ├── clean-code.md         # Notas sobre Clean Code y principios SOLID
 │   ├── design-patterns.md    # Notas sobre patrones de diseño
 │   └── testing.md          # Notas sobre pruebas y TDD
