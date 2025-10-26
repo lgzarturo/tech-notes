@@ -11,6 +11,7 @@
 
 - [Kotlin](backend/kotlin.md)
 - [Python](backend/python.md)
+- [Django](backend/django.md)
 - [Spring Boot](backend/spring-boot.md)
 - [MySQL](database/mysql.md)
 - [PostgreSQL](database/postgresql.md)

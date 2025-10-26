@@ -39,6 +39,7 @@ Las notas están organizadas por tema para facilitar la navegación. Cada secci�
 - [Spring Boot](notes/backend/spring-boot.md)
 - [Kotlin](notes/backend/kotlin.md)
 - [Python](notes/backend/python.md)
+- [Django](notes/backend/django.md)
 
 ### Frontend
 
@@ -79,13 +80,14 @@ Las notas están organizadas por tema para facilitar la navegación. Cada secci�
 │   └── testing.md          # Notas sobre pruebas y TDD
 ├── backend/                  # Notas sobre desarrollo backend
 │   ├── kotlin.md             # Notas sobre Kotlin y su uso en backend con Spring Boot
-│   ├── python.md             # Notas sobre Python y frameworks asociados 
+│   ├── python.md             # Notas sobre Python y frameworks asociados
+│   ├── django.md             # Notas sobre Django y su uso
 │   └── spring-boot.md        # Notas sobre Spring Boot y desarrollo de APIs
 ├── daily/                 # Notas diarias y tips rápidos sobre desarrollo
 │   ├── git-commands.md       # Comandos útiles de Git
 │   ├── linux-commands.md     # Comandos útiles de Linux
-│   └── vscode.md             # Atajos y tips para Visual Studio Code 
-├── database/              # Notas sobre bases de datos  
+│   └── vscode.md             # Atajos y tips para Visual Studio Code
+├── database/              # Notas sobre bases de datos
 │   ├── mysql.md              # Notas sobre MySQL y consultas comunes
 │   ├── postgresql.md         # Notas sobre PostgreSQL y consultas comunes
 │   └── redis.md              # Notas sobre Redis y su uso
@@ -160,6 +162,7 @@ Cuando agregues una nueva nota:
 
 ```markdown
 ## Índice
+
 - [Eliminar un puerto en uso](#eliminar-un-puerto-en-uso)
 - [Otra nota útil](#otra-nota-útil)
 ```
@@ -186,7 +189,6 @@ related: [[<nota-relacionada1>], [<nota-relacionada2>]]
 <Descripción de la nota>
 
 ---
-
 ```
 
 ---
@@ -194,7 +196,6 @@ related: [[<nota-relacionada1>], [<nota-relacionada2>]]
 ## Plantilla para notas rápidas
 
 ```markdown
-
 ### [Título breve y claro]
 
 **Problema:**
@@ -216,7 +217,6 @@ Advertencias, tips personales o enlaces útiles.
 **Tags:** #tag1 #tag2 #tag3
 
 ---
-
 ```
 
 ---
