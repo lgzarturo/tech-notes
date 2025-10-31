@@ -50,6 +50,7 @@ Las notas están organizadas por tema para facilitar la navegación. Cada secci�
 ### DevOps
 
 - [Docker](notes/devops/docker.md)
+- [Hostinger](notes/devops/hostinger.md)
 - [Kubernetes](notes/devops/kubernetes.md)
 - [CI/CD](notes/devops/ci-cd.md)
 
@@ -94,6 +95,7 @@ Las notas están organizadas por tema para facilitar la navegación. Cada secci�
 ├── devops/                # Notas sobre prácticas y herramientas DevOps
 │   ├── ci-cd.md              # Notas sobre integración y despliegue continuo
 │   ├── docker.md             # Notas sobre Docker y su uso
+|   |── hostinger.md          # Notas sobre Hostinger y su uso
 │   └── kubernetes.md         # Notas sobre Kubernetes y su uso
 ├── frontend/              # Notas sobre desarrollo frontend
 │   ├── astro.md              # Notas sobre Astro y su uso
